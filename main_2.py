@@ -4,7 +4,9 @@ import numpy as np
 # load image
 # img = cv2.imread('2.jpg')
 
-img = cv2.imread('main.jpg')
+image_path = 'earphone.jpg'
+
+img = cv2.imread(image_path)
 
 # convert to graky
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -33,5 +35,11 @@ result = img.copy()
 result = cv2.cvtColor(result, cv2.COLOR_BGR2BGRA)
 result[:, :, 3] = mask
 
-cv2.imwrite('result.png', result)
+
+result_path= image_path.rsplit(".", 1)[0]
+result_path+=".png"
+cv2.imwrite(result_path, result)
+ 
+
+
 
