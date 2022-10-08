@@ -4,7 +4,9 @@ import numpy as np
 # load image
 # img = cv2.imread('2.jpg')
 
-image_path = 'earphone.jpg'
+image_path = 'input_images/earphone.jpg'
+output_directory = "output_images/" 
+extension = ".png"
 
 img = cv2.imread(image_path)
 
@@ -36,9 +38,10 @@ result = cv2.cvtColor(result, cv2.COLOR_BGR2BGRA)
 result[:, :, 3] = mask
 
 
-result_path= image_path.rsplit(".", 1)[0]
-result_path+=".png"
-cv2.imwrite(result_path, result)
+final_path= output_directory + (image_path.rsplit(".", 1)[0]).split("/", 1)[1] + extension
+
+cv2.imwrite(final_path , result)
+
  
 
 
